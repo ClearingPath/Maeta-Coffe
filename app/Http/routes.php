@@ -17,6 +17,8 @@ Route::get('home', 'HomeController@index');
 
 Route::get('menu/input', 'MenuController@input');
 
+Route::get('menu/show', 'MenuController@showMenus');
+
 Route::get('bahan/create', 'BahanController@create');
 
 Route::post('bahan/addBahanSuccess', 'BahanController@add_bahan');
