@@ -15,6 +15,7 @@ class CreatePesanansTable extends Migration {
 		Schema::create('pesanans', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('id_menu')->unsigned();
 			$table->integer('id_bahan_baku')->unsigned();
 			$table->integer('jumlah');
 			$table->timestamp('tanggal');
@@ -23,6 +24,11 @@ class CreatePesanansTable extends Migration {
 			$table->foreign('id_bahan_baku')
 				  ->references('id')
 				  ->on('bahan_bakus')
+				  ->onDelete('cascade');
+
+		  	$table->foreign('id_menu')
+				  ->references('id')
+				  ->on('menus')
 				  ->onDelete('cascade');
 		});
 	}

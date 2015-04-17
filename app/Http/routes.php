@@ -15,17 +15,11 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('template', 'HomeController@template');
+Route::get('menu/input', 'MenuController@input');
 
-Route::get('lihatbahanbaku', 'HomeController@lihatBahanBaku');
+Route::get('bahan/create', 'BahanController@create');
 
-Route::get('editbahanbaku', 'HomeController@editBahanBaku');
-
-Route::get('inputbahanbaku', 'HomeController@inputBahanBaku');
-
-Route::get('lihatdaftaranggaran', 'HomeController@lihatDaftarAnggaran');
-
-Route::get('detailanggaran', 'HomeController@detailAnggaran');
+Route::post('bahan/addBahanSuccess', 'BahanController@add_bahan');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
