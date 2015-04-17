@@ -37,7 +37,7 @@
 				<td><?php echo $i; ?></td>
 				<td><?php echo $par->nama ?></td>
 				<td><?php echo $par->harga ?></td>
-				<td><a href="{{ url('/detailMenu/') }}">Detail</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+				<td><a href="{{ url('/menu/detail/') }}/<?php echo $par->id; ?>">Detail</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>

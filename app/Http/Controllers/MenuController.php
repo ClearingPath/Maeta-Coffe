@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\menu;
+use App\resep;
+use App\bahanBaku;
 
 use Illuminate\Http\Request;
 
@@ -21,6 +23,14 @@ class MenuController extends Controller {
 		
 		return View::make('menu.list')
 					->with('lists', $listMenu);
+	}
+	
+	public function showMenuDetail($id)
+	{
+		// $resep = resep::where('id_menu', '=', $id)->get();
+		
+		// $listBahan = bahanBaku::where('id', '=', $resp$id)->get();
+		return view('menu.detail');
 	}
 
 }
