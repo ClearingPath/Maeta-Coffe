@@ -20,6 +20,6 @@ class BahanController extends Controller {
 		$input = $request->all();
 		bahanBaku::create($input);
 
-		return redirect('../');
+		return redirect('/');
 	}
 }

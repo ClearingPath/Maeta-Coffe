@@ -24,7 +24,7 @@
 
 <div class="row">
 	<div class="col-lg-6">
-	    <form role="form">
+	    <form role="form" method="POST" action="{{ url('bahan/addBahanSuccess') }} ">
 	    	<input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 	    	<div class="form-group">
 	    		<label>Nama</label>
