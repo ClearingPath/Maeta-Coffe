@@ -24,11 +24,30 @@
 
 <div class="row">
 	<div class="col-lg-12">
-	    <form role="form" class="input-append">
+	    <form role="form" class="input-append" method="POST" action=" {{url('menu/addMenuSuccess') }} ">
+	    	<input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 	    	<input type="hidden" name="count" value="1">
 	    	<div class="form-group">
-	    		<div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+	    		<label>Nama Menu</label>
+	    		<input class="form-control" name="nama">
 	    	</div>
+	    	<div class="form-group">
+	    		<label>Harga</label>
+	    		<input class="form-control" name="harga">
+	    	</div>
+	    	<div class="form-group">
+	    		<label>Bahan Baku</label>
+	    		<div id="field">
+	    			<select id="input1" name="input1">
+	    				@foreach ($bahan as $elemen)
+	    					<option>{{$elemen->nama}}</option>
+	    				@endforeach
+	    			</select> 
+					<input autocomplete="off" class="input" id="field1" name="filed1" type="text" placeholder="Type something" data-items="8"/>
+					<button id="b1" class="btn add-more" type="button">+</button>
+				</div>
+	    	</div>
+	    	<button type="submit" class="btn btn-default" value="submit">Simpan</button>
 	    </form>
 	</div>
 </div>
@@ -44,7 +63,7 @@ $(document).ready(function(){
         var addto = "#field" + next;
         var addRemove = "#field" + (next);
         next = next + 1;
-        var newIn = '<input autocomplete="off" class="input" id="field' + next + '" name="field' + next + '" type="text">';
+        var newIn = '<select id="input'+ next +'" name="input'+ next +'">@foreach ($bahan as $elemen)<option>{{$elemen->nama}}</option>@endforeach</select><input autocomplete="off" class="input" id="field' + next + '" name="field' + next + '" type="text">';
         var newInput = $(newIn);
         var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
         var removeButton = $(removeBtn);
@@ -57,8 +76,10 @@ $(document).ready(function(){
                 e.preventDefault();
                 var fieldNum = this.id.charAt(this.id.length-1);
                 var fieldID = "#field" + fieldNum;
+                var inputID = "#input" + fieldNum;
                 $(this).remove();
                 $(fieldID).remove();
+                $(inputID).remove();
             });
     });
     

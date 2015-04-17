@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\menu;
+use App\bahanBaku;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateMenuRequest;
@@ -13,7 +14,9 @@ class MenuController extends Controller {
 
 	public function input()
 	{
-		return view('menu.input');
+		$bahan = bahanBaku::get();
+
+		return view('menu.input', compact('bahan'));
 	}
 	
 	public function showMenus()
@@ -22,6 +25,15 @@ class MenuController extends Controller {
 		
 		return View::make('menu.list')
 					->with('lists', $listMenu);
+	}
+
+	public function add_menu(CreateMenuRequest $request)
+	{
+		$input = $request->all();
+
+		dd($input);
+
+		return $input;
 	}
 
 }
