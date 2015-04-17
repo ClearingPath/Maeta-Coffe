@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\menu;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateMenuRequest;
 
 use View;
 
