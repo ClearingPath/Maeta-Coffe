@@ -9,4 +9,8 @@ class menu extends Model {
 		'harga',
 	];
 
+	public function bahanBaku()
+	{
+		return $this->belongsToMany('App\bahanBaku','reseps')->withTimestamps();
+	}
 }

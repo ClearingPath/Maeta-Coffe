@@ -30,6 +30,7 @@ class MenuController extends Controller {
 	public function add_menu(CreateMenuRequest $request)
 	{
 		$input = $request->all();
+		// $bahan = bahanBaku::where('nama', '=', )
 
 		dd($input);
 
