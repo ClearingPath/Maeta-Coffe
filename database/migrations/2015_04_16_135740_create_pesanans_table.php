@@ -16,15 +16,9 @@ class CreatePesanansTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('id_menu')->unsigned();
-			$table->integer('id_bahan_baku')->unsigned();
 			$table->integer('jumlah');
 			$table->timestamp('tanggal');
 			$table->timestamps();
-
-			$table->foreign('id_bahan_baku')
-				  ->references('id')
-				  ->on('bahan_bakus')
-				  ->onDelete('cascade');
 
 		  	$table->foreign('id_menu')
 				  ->references('id')
