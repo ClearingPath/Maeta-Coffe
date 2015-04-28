@@ -6,6 +6,7 @@ use App\menu;
 use App\bahanBaku;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests\CreateMenuRequest;
 
 use View;
@@ -37,12 +38,21 @@ class MenuController extends Controller {
 
 	public function add_menu(CreateMenuRequest $request)
 	{
-		$input = $request->all();
+		// $input = $request->all();
 		// $bahan = bahanBaku::where('nama', '=', )
+		
+		// dimasukinnya per loop kayaknya (?)
+		$counter = Input::get('count');
+		$nama = Input::get('nama');
+		$harga = Input::get('harga');
+		for($x=0;$x<=$counter;$x++){
+			echo "<label>";
+			$input = Input::get('input'.$x);
+			$field = Input::get('field'.$x);
+			echo "</label><br />";
+		}
 
-		dd($input);
-
-		return $input;
+		return view('home');
 	}
 
 	public function show_history() {

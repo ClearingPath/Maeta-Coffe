@@ -26,7 +26,7 @@
 	<div class="col-lg-12">
 	    <form role="form" class="input-append" method="POST" action=" {{url('menu/addMenuSuccess') }} ">
 	    	<input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-	    	<input type="hidden" name="count" value="1">
+	    	<input type="hidden" name="count" id="count" value="0">
 	    	<div class="form-group">
 	    		<label>Nama Menu</label>
 	    		<input class="form-control" name="nama">
@@ -37,15 +37,11 @@
 	    	</div>
 	    	<div class="form-group">
 	    		<label>Bahan Baku</label>
-	    		<div id="field">
-	    			<select id="input1" name="input1">
-	    				@foreach ($bahan as $elemen)
-	    					<option>{{$elemen->nama}}</option>
-	    				@endforeach
-	    			</select> 
-					<input autocomplete="off" class="input" id="field1" name="filed1" type="text" placeholder="Type something" data-items="8"/>
-					<button id="b1" class="btn add-more" type="button">+</button>
+	    		<div id="field_box">
+	    			
 				</div>
+				<button id="addButton" class="btn add-more" type="button">+</button>
+				<button id="removeButton" class="btn btn-danger remove-me" type="button" >-</button>
 	    	</div>
 	    	<button type="submit" class="btn btn-default" value="submit">Simpan</button>
 	    </form>
@@ -56,8 +52,40 @@
 
 @section('script')
 <script type="text/javascript">
+ 
 $(document).ready(function(){
-    var next = 1;
+    var counter = 0;
+    $("#addButton").click(function () {
+ 
+		var newField = $(document.createElement('div'))
+			 .attr("id", 'field_box' + counter);
+
+		newField.after().html('<select id="input[]" name="input'+ counter +'">@foreach ($bahan as $elemen)<option>{{$elemen->nama}}</option>@endforeach</select><input autocomplete="off" class="input" id="field' + counter + '" name="field' + counter + '" type="text">');
+
+		newField.appendTo("#field_box");
+
+		counter++;
+		$("#count").val(counter); 
+	});
+ 
+	$("#removeButton").click(function () {
+		counter--;
+		$("#field_box" + counter).remove();
+		$("#count").val(counter); 
+	});
+ 
+	// $("#getButtonValue").click(function () {
+		// var msg = '';
+		// for(i=1; i<counter; i++){
+			// msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+		// }
+		// alert(msg);
+	// });
+});
+
+// yang lama
+/*$(document).ready(function(){
+    var next = 0;
     $(".add-more").click(function(e){
         e.preventDefault();
         var addto = "#field" + next;
@@ -83,8 +111,6 @@ $(document).ready(function(){
             });
     });
     
-
-    
-});
+});*/
 </script>
 @endsection
