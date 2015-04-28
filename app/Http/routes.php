@@ -19,7 +19,7 @@ Route::get('menu/input', 'MenuController@input');
 
 Route::get('menu/show', 'MenuController@showMenus');
 
-Route::get('menu/detail/{id}', 'MenuController@showMenuDetail');
+Route::post('menu/addMenuSuccess', 'MenuController@add_menu');
 
 Route::get('bahan/create', 'BahanController@create');
 

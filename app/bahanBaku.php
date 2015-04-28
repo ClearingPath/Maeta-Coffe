@@ -12,4 +12,15 @@ class bahanBaku extends Model {
 		'threshold',
 	];
 
+	public function menu()
+	{
+		return $this->belongsToMany('App\menu','reseps');
+	}
+
+	public function listBelanja()
+	{
+		return $this->belongsToMany('App\menu','detail_belanjas');
+	}
+
+
 }
