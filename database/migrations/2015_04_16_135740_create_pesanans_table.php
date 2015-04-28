@@ -15,12 +15,12 @@ class CreatePesanansTable extends Migration {
 		Schema::create('pesanans', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_menu')->unsigned();
+			$table->integer('menu_id')->unsigned();
 			$table->integer('jumlah');
 			$table->timestamp('tanggal');
 			$table->timestamps();
 
-		  	$table->foreign('id_menu')
+		  	$table->foreign('menu_id')
 				  ->references('id')
 				  ->on('menus')
 				  ->onDelete('cascade');

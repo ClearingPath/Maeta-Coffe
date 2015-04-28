@@ -45,4 +45,8 @@ class MenuController extends Controller {
 		return $input;
 	}
 
+	public function show_history() {
+		
+	}
+
 }

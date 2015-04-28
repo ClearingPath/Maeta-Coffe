@@ -15,16 +15,16 @@ class CreateResepsTable extends Migration {
 		Schema::create('reseps', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_menu')->unsigned();
-			$table->integer('id_bahan_baku')->unsigned();
+			$table->integer('menu_id')->unsigned();
+			$table->integer('bahan_baku_id')->unsigned();
 			$table->timestamps();
 
-			$table->foreign('id_bahan_baku')
+			$table->foreign('bahan_baku_id')
 				  ->references('id')
 				  ->on('bahan_bakus')
 				  ->onDelete('cascade');
 
-		 	$table->foreign('id_menu')
+		 	$table->foreign('menu_id')
 				  ->references('id')
 				  ->on('menus')
 				  ->onDelete('cascade');
