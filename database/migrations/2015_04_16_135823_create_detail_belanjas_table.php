@@ -15,16 +15,16 @@ class CreateDetailBelanjasTable extends Migration {
 		Schema::create('detail_belanjas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_list')->unsigned();
-			$table->integer('id_bahan_baku')->unsigned();
+			$table->integer('list_id')->unsigned();
+			$table->integer('bahan_baku_id')->unsigned();
 			$table->timestamps();
 
-			$table->foreign('id_bahan_baku')
+			$table->foreign('bahan_baku_id')
 				  ->references('id')
 				  ->on('bahan_bakus')
 				  ->onDelete('cascade');
 
-			$table->foreign('id_list')
+			$table->foreign('list_id')
 				  ->references('id')
 				  ->on('list_belanjas')
 				  ->onDelete('cascade');
