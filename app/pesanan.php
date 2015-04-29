@@ -8,7 +8,7 @@ class pesanan extends Model {
 		'menu_id',
 		'jumlah',
 		'tanggal',
-	]
+	];
 
 	protected $dates = ['tanggal'];
 
