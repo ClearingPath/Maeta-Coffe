@@ -16,7 +16,7 @@ class CreatePesanansTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('menu_id')->unsigned();
-			$table->integer('jumlah');
+			$table->decimal('jumlah');
 			$table->timestamp('tanggal');
 			$table->timestamps();
 

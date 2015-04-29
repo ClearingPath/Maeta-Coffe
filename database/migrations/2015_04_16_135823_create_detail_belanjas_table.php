@@ -15,8 +15,8 @@ class CreateDetailBelanjasTable extends Migration {
 		Schema::create('detail_belanjas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('list_id')->unsigned();
-			$table->integer('bahan_baku_id')->unsigned();
+			$table->integer('list_id')->unsigned()->index();
+			$table->integer('bahan_baku_id')->unsigned()->index();
 			$table->timestamps();
 
 			$table->foreign('bahan_baku_id')

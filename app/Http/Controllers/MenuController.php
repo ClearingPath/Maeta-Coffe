@@ -92,7 +92,6 @@ class MenuController extends Controller {
 			$pesanan->tanggal = Carbon::now();
 			$pesanan->save();
 		}
-
 		return redirect('menu/histori');	
 	}
 }

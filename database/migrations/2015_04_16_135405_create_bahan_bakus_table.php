@@ -15,11 +15,11 @@ class CreateBahanBakusTable extends Migration {
 		Schema::create('bahan_bakus', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nama');
-			$table->integer('jumlah_stok');
+			$table->string('nama')->unique();
+			$table->decimal('jumlah_stok');
 			$table->integer('harga_per_satuan');
 			$table->string('satuan');
-			$table->integer('threshold');
+			$table->decimal('threshold');
 			$table->timestamps();
 		});
 	}

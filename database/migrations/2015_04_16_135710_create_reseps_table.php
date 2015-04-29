@@ -15,9 +15,9 @@ class CreateResepsTable extends Migration {
 		Schema::create('reseps', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('menu_id')->unsigned();
-			$table->integer('bahan_baku_id')->unsigned();
-			$table->integer('jumlah');
+			$table->integer('menu_id')->unsigned()->index();
+			$table->integer('bahan_baku_id')->unsigned()->index();
+			$table->decimal('jumlah');
 			$table->timestamps();
 
 			$table->foreign('bahan_baku_id')
