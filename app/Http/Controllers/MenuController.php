@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests\CreateMenuRequest;
 
 use View;
+use DB;
 
 class MenuController extends Controller {
 
@@ -28,12 +29,20 @@ class MenuController extends Controller {
 					->with('lists', $listMenu);
 	}
 	
-	public function showMenuDetail($id)
+	public function showMenuDetail($id_menu)
 	{
-		// $resep = resep::where('id_menu', '=', $id)->get();
-		
-		// $listBahan = bahanBaku::where('id', '=', $resp$id)->get();
-		return view('menu.detail');
+		$menus = DB::table('menus')
+					->select('menus.id', 'menus.nama')
+					->where('menus.id', '=', $id_menu)
+					->get();
+					
+		$reseps = DB::table('menus')
+					->join('reseps', 'menus.id', '=', 'reseps.menu_id')
+					->join('bahan_bakus', 'bahan_bakus.id', '=', 'reseps.bahan_baku_id')
+					->select('bahan_bakus.nama')
+					->where('menus.id', '=', $id_menu)
+					->get();
+		return view('menu.detail')->with('resep', $reseps)->with('menu', $menus);
 	}
 
 	public function add_menu(CreateMenuRequest $request)

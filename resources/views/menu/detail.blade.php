@@ -18,21 +18,31 @@
 	</div>
 </div>
 <!-- /.row -->
+<?php foreach($menu as $men):?>
+<h2><?php echo $men->nama ?></h2>
+<?php endforeach ?>
 
-<h2>Nasi Goreng Teri</h2>
+
 <div class="col-lg-6 table-responsive">
 	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title">Resep</h3>
-		</div>
-		<div class="panel-body">
-			<label>Nasi</label><br/>
-			<label>Minyak</label><br/>
-			<label>Bumbu nasi goreng</label><br/>
-			<label>Timun</label><br/>
-			<label>Tomat</label><br/>
-			<label>Ikan Teri</label><br/>
-		</div>
+		<table class="table table-hover">
+		<thead>
+			<tr>
+				<th style="width:10px">No</th>
+				<th>Bahan</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php $i=1;?>
+			<?php foreach($resep as $res):?>
+				<tr>
+					<td><?php echo $i; ?></td>
+					<td><?php echo $res->nama; ?></td>
+				</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
 	</div>
 </div>
+
 @endsection
