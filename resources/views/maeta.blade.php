@@ -160,19 +160,19 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-dasboard"></i> Home</a>
+                        <a href="/"><i class="fa fa-fw fa-dasboard"></i> Home</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#menu"><i class="fa fa-fw fa-arrows-v"></i> Menu <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="menu" class="collapse">
                             <li>
-                                <a href="#">Input Pesanan</a>
+                                <a href="/menu/pesanan">Input Pesanan</a>
                             </li>
                             <li>
-                                <a href="#">Lihat Menu</a>
+                                <a href="/menu/show">Lihat Menu</a>
                             </li>
                             <li>
-                                <a href="#">History Menu</a>
+                                <a href="/menu/histori">History Menu</a>
                             </li>
                         </ul>
                     </li>
@@ -183,7 +183,7 @@
                                 <a href="/menu/create">Create Menu</a>
                             </li>
                             <li>
-                                <a href="/menu/show">Udpate Menu</a>
+                                <a href="/menu/update">Udpate Menu</a>
                             </li>
                             <li>
                                 <a href="/bahan/create">Input Bahan Baku</a>

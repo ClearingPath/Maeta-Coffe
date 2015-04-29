@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\menu;
 use App\bahanBaku;
 use App\resep;
+use App\pesanan;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -70,4 +72,27 @@ class MenuController extends Controller {
 		
 	}
 
+	public function pesanan() {
+		$menu = menu::get();
+
+		return view('menu.pesanan',compact('menu'));
+	}
+
+	public function add_pesanan(Request $request)
+	{
+		$counter = Input::get('count');
+		for($x=0;$x<$counter;$x++)
+		{
+			$nama = Input::get('input'.$x);
+			$jumlah = Input::get('field'.$x);
+			$menu = menu::where('nama','=',$nama)->get()->first();
+			$pesanan = new pesanan;
+			$pesanan->menu_id = $menu->id;
+			$pesanan->jumlah = $jumlah;
+			$pesanan->tanggal = Carbon::now();
+			$pesanan->save();
+		}
+
+		return redirect('menu/histori');	
+	}
 }
