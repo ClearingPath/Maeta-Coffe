@@ -20,7 +20,7 @@ class BahanController extends Controller {
 		$input = $request->all();
 		bahanBaku::create($input);
 
-		return redirect('/');
+		return redirect('bahan/show');
 	}
 
 	public function edit_bahan($id_bahan) {

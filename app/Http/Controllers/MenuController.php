@@ -84,7 +84,7 @@ class MenuController extends Controller {
 						->having(DB::raw('MONTH(tanggal)'), '=', $nowTime->month)
 						->get();
 
-		return view('menu/histori', compact('pesananBulanIni'));
+		return view('menu.histori', compact('pesananBulanIni'));
 	}
 
 	public function pesanan() {
