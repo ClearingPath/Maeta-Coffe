@@ -13,27 +13,27 @@
    
             <div class="form-group">
                 <label>Nama</label>
-                <input class="form-control" placeholder='{{$input->nama}}' name='nama'>
+                <input class="form-control" value='{{$input->nama}}' name='nama'>
             </div>
 
             <div class="form-group">
                 <label>Jumlah Stok</label>
-                <input class="form-control" placeholder='{{$input->jumlah_stok}}' name='jumlah'>
+                <input class="form-control" value='{{$input->jumlah_stok}}' name='jumlah'>
             </div>
 
             <div class="form-group">
                 <label>Threshold</label>
-                <input class="form-control" placeholder='{{$input->threshold}}' name='threshold'>
+                <input class="form-control" value='{{$input->threshold}}' name='threshold'>
             </div>
 
             <div class="form-group">
                 <label>Satuan</label>
-                <input class="form-control" placeholder='{{$input->satuan}}' name='satuan'>
+                <input class="form-control" value='{{$input->satuan}}' name='satuan'>
             </div>
 
             <div class="form-group">
                 <label>Harga Satuan</label>
-                <input class="form-control" placeholder='{{$input->harga_per_satuan}}' name='harga'>
+                <input class="form-control" value='{{$input->harga_per_satuan}}' name='harga'>
             </div>
 
 

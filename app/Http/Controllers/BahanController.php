@@ -53,6 +53,6 @@ class BahanController extends Controller {
 	public function daftar() {
 		$input = bahanBaku::all();
 
-		return view('bahan/daftar', compact('input'));
+		return view('bahan/show', compact('input'));
 	}
 }
