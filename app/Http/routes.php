@@ -41,6 +41,10 @@ Route::get('bahan/create', 'BahanController@create');
 
 Route::post('bahan/addBahanSuccess', 'BahanController@add_bahan');
 
+Route::get('anggaran/show', 'AnggaranController@index');
+
+Route::get('anggaran/detail', 'AnggaranController@show');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
