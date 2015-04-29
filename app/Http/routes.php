@@ -15,7 +15,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('menu/input', 'MenuController@input');
+Route::get('menu/create', 'MenuController@input');
 
 Route::get('menu/show', 'MenuController@showMenus');
 
@@ -31,7 +31,7 @@ Route::get('menu/histori', 'MenuController@show_history');
 
 Route::post('bahan/editBahanSuccess', 'BahanController@edit_bahan_proceed');
 
-Route::get('bahan/daftar', 'BahanController@daftar');
+Route::get('bahan/show', 'BahanController@daftar');
 
 Route::get('bahan/create', 'BahanController@create');
 

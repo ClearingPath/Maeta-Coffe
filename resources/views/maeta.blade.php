@@ -180,19 +180,16 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#bahanBaku"><i class="fa fa-fw fa-arrows-v"></i> Bahan Baku <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="bahanBaku" class="collapse">
                             <li>
-                                <a href="#">Lihat Menu</a>
+                                <a href="/menu/create">Create Menu</a>
                             </li>
                             <li>
-                                <a href="#">Input Menu</a>
+                                <a href="/menu/show">Udpate Menu</a>
                             </li>
                             <li>
-                                <a href="#">Input Bahan Baku</a>
+                                <a href="/bahan/create">Input Bahan Baku</a>
                             </li>
                             <li>
-                                <a href="#">Lihat Bahan Baku</a>
-                            </li>
-                            <li>
-                                <a href="#">Lihat Estimasi Sisa Bahan Baku</a>
+                                <a href="/bahan/show">Update Bahan Baku</a>
                             </li>
                         </ul>
                     </li>
