@@ -25,6 +25,8 @@ Route::get('menu/pesanan', 'MenuController@pesanan');
 
 Route::post('menu/addMenuSuccess', 'MenuController@add_menu');
 
+Route::get('bahan/show', 'BahanController@daftar');
+
 Route::post('menu/addPesananSuccess', 'MenuController@add_pesanan');
 
 Route::get('bahan/edit/{id_bahan}', 'BahanController@edit_bahan');
@@ -34,8 +36,6 @@ Route::get('bahan/delete/{id_bahan}', 'BahanController@delete_bahan');
 Route::get('menu/histori', 'MenuController@show_history');
 
 Route::post('bahan/editBahanSuccess', 'BahanController@edit_bahan_proceed');
-
-Route::get('bahan/show', 'BahanController@daftar');
 
 Route::get('bahan/create', 'BahanController@create');
 
