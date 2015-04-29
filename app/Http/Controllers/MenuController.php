@@ -6,7 +6,7 @@ use App\menu;
 use App\bahanBaku;
 use App\resep;
 use App\pesanan;
-use Carbon;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -65,11 +65,11 @@ class MenuController extends Controller {
 			$resep->save();
 		}
 
-		return redirect('menu/show');
+		return redirect('menu/update');
 	}
 
 	public function show_history() {
-		$nowTime = Carbon\Carbon::now();
+		$nowTime = Carbon::now();
 		$pesananBulanIni = pesanan::where(DB::raw('MONTH(tanggal)'), $nowTime->month)->get();
 
 		return view('menu/histori', compact('pesananBulanIni'));

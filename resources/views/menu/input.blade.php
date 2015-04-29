@@ -59,7 +59,7 @@ $(document).ready(function(){
 		var newField = $(document.createElement('div'))
 			 .attr("id", 'field_box' + counter);
 
-		newField.after().html('<select id="input'+ counter +'" name="input'+ counter +'">@foreach ($bahan as $elemen)<option>{{$elemen->nama}}</option>@endforeach</select><input autocomplete="off" class="input" id="field' + counter + '" name="field' + counter + '" type="text">');
+		newField.after().html('<select id="input[]" name="input'+ counter +'">@foreach ($bahan as $elemen)<option>{{$elemen->nama}}</option>@endforeach</select><input autocomplete="off" class="input" id="field' + counter + '" name="field' + counter + '" type="text">');
 
 		newField.appendTo("#field_box");
 
