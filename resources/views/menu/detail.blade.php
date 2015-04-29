@@ -38,6 +38,7 @@
 				<tr>
 					<td><?php echo $i; ?></td>
 					<td><?php echo $res->nama; ?></td>
+					<?php $i = $i+1;?>
 				</tr>
 			<?php endforeach ?>
 		</tbody>

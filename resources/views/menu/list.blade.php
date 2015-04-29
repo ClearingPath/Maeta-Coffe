@@ -38,6 +38,7 @@
 				<td><?php echo $par->nama ?></td>
 				<td><?php echo $par->harga ?></td>
 				<td><a href="{{ url('/menu/detail/') }}/<?php echo $par->id; ?>">Detail</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+				<?php $i = $i+1;?>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>

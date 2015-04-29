@@ -63,7 +63,7 @@ class MenuController extends Controller {
 			$resep->save();
 		}
 
-		return view('home');
+		return redirect('menu/show');
 	}
 
 	public function show_history() {
