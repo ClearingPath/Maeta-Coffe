@@ -19,6 +19,8 @@ Route::get('menu/input', 'MenuController@input');
 
 Route::get('menu/show', 'MenuController@showMenus');
 
+Route::get('menu/detail/{id_menu}', 'MenuController@showMenuDetail');
+
 Route::post('menu/addMenuSuccess', 'MenuController@add_menu');
 
 Route::get('bahan/edit/{id_bahan}', 'BahanController@edit_bahan');
