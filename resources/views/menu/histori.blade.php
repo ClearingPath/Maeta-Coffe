@@ -10,34 +10,32 @@
 
 	    <div class="panel-body">
 		    <div class="table-responsive">
-		        <table class="table table-bordered table-hover table-striped">
-		            <thead>
-		                <tr>
-		                    <th>Nama</th>
-		                    <th>Jumlah Stok Saat Ini</th>
-		                    <th>Threshold</th>
-		                    <th>Satuan</th>
-		                    <th>Harga Satuan (Rupiah)</th>
-		                    <th>Aksi</th>
-		                </tr>
-		            </thead>
-		            <tbody>
-		        		@foreach ($input as $inputbahan)
+		    	@if ($pesananBulanIni != "[]")
+			        <table class="table table-bordered table-hover table-striped">
+			            <thead>
 			                <tr>
-			                    <td>{{ $inputbahan->nama }}</td>
-			                    <td>{{ $inputbahan->jumlah_stok }}</td>
-			                    <td>{{ $inputbahan->threshold }}</td>
-			                    <td>{{ $inputbahan->satuan }}</td>
-			                    <td>{{ $inputbahan->harga_per_satuan }}</td>
-			                    <td>
-			                        <a href="{{ url('bahan/edit/'.$inputbahan->id) }}">Edit</a> |
-			                        <a href="{{ url('bahan/delete/'.$inputbahan->id) }}">Delete</a>
-			                    </td>
-			                    
+			                    <th>Waktu Pemesanan</th>
+			                    <th>Daftar Menu yang Dipesan</th>
 			                </tr>
-		      			@endforeach
-		            </tbody>
-		        </table>
+			            </thead>
+			            <tbody>
+			        		@foreach ($pesananBulanIni as $pesanan)
+			        			{{ $daftarMenuPesan = menu::where('id',$pesananBulanIni->menu_id)->get() }}
+
+				                <tr>
+				                    <td>{{ $pesanan->tanggal }}</td>
+				                    <td>
+					                    @foreach ($daftarMenuPesan as $menu)
+					                    	{{ $menu->nama }}, harga : {{ $menu->harga }} <BR>
+					                    @endforeach   
+					                </td>
+				                </tr>
+			      			@endforeach
+			            </tbody>
+			        </table>
+		        @else
+		        	<h3>Pesanan Kosong. Silakan isi pesanan menu yang masuk.</h3>
+		        @endif
 		    </div>
 		</div>
 
