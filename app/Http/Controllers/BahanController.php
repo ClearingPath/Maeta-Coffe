@@ -34,7 +34,7 @@ class BahanController extends Controller {
 		$input = bahanBaku::where('id',$id_bahan)->first();
 		$input->delete();
 
-		return redirect('bahan/daftar');
+		return redirect('bahan/show');
 	}
 
 	public function edit_bahan_proceed(Request $request) {
@@ -47,12 +47,12 @@ class BahanController extends Controller {
 		$edit->threshold = $request->get('threshold');
 		$edit->save();
 
-		return redirect('bahan/daftar');
+		return redirect('bahan/show');
 	}
 
 	public function daftar() {
 		$input = bahanBaku::all();
 
-		return view('bahan/daftar', compact('input'));
+		return view('bahan/show', compact('input'));
 	}
 }

@@ -20,14 +20,10 @@
 			            </thead>
 			            <tbody>
 			        		@foreach ($pesananBulanIni as $pesanan)
-			        			{{ $daftarMenuPesan = menu::where('id',$pesananBulanIni->menu_id)->get() }}
-
 				                <tr>
 				                    <td>{{ $pesanan->tanggal }}</td>
 				                    <td>
-					                    @foreach ($daftarMenuPesan as $menu)
-					                    	{{ $menu->nama }}, harga : {{ $menu->harga }} <BR>
-					                    @endforeach   
+				                    	{{ $pesanan->nama }}, harga : {{ $pesanan->harga }} <BR>
 					                </td>
 				                </tr>
 			      			@endforeach

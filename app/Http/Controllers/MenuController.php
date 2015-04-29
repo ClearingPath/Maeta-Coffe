@@ -65,12 +65,24 @@ class MenuController extends Controller {
 			$resep->save();
 		}
 
-		return redirect('menu/show');
+		return redirect('menu/update');
 	}
 
 	public function show_history() {
 		$nowTime = Carbon\Carbon::now();
-		$pesananBulanIni = pesanan::where(DB::raw('MONTH(tanggal)'), $nowTime->month)->get();
+		/*$pesananBulanIni = pesanan::where(DB::raw('MONTH(tanggal)'), $nowTime->month)->get();
+		$daftarMenuPesan = menu::where('id',$pesananBulanIni->menu_id)->get();
+		$pesananBulanIni = DB::table('pesanans')
+						->join('menus', 'pesanans.menu_id', '=', 'menus.id')
+						->groupBy(DB::raw('tanggal'))
+						->having(DB::raw('MONTH(tanggal)'), '=', $nowTime->month)
+						->get();*/
+
+		$pesananBulanIni = DB::table('pesanans')
+						->join('menus', 'pesanans.menu_id', '=', 'menus.id')
+						->orderBy('tanggal', 'desc')
+						->having(DB::raw('MONTH(tanggal)'), '=', $nowTime->month)
+						->get();
 
 		return view('menu/histori', compact('pesananBulanIni'));
 	}
@@ -92,7 +104,7 @@ class MenuController extends Controller {
 			$pesanan = new pesanan;
 			$pesanan->menu_id = $menu->id;
 			$pesanan->jumlah = $jumlah;
-			$pesanan->tanggal = Carbon::now();
+			$pesanan->tanggal = Carbon\Carbon::now();
 			$pesanan->save();
 		}
 		return redirect('menu/histori');	
