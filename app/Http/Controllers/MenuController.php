@@ -65,14 +65,14 @@ class MenuController extends Controller {
 			$resep->save();
 		}
 
-		return redirect('menu/show');
+		return redirect('menu/update');
 	}
 
 	public function show_history() {
 		$nowTime = Carbon\Carbon::now();
 		$pesananBulanIni = pesanan::where(DB::raw('MONTH(tanggal)'), $nowTime->month)->get();
 
-		return view('menu/histori', compact('pesananBulanIni'));
+		return view('menu.histori', compact('pesananBulanIni'));
 	}
 
 	public function pesanan() {

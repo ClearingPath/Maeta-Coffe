@@ -20,7 +20,7 @@
 			            </thead>
 			            <tbody>
 			        		@foreach ($pesananBulanIni as $pesanan)
-			        			{{ $daftarMenuPesan = menu::where('id',$pesananBulanIni->menu_id)->get() }}
+			        			{{ $daftarMenuPesan = App\menu::where('id',$pesananBulanIni->menu_id)->get() }}
 
 				                <tr>
 				                    <td>{{ $pesanan->tanggal }}</td>
