@@ -22,7 +22,8 @@ class CreateMenuRequest extends Request {
 	public function rules()
 	{
 		return [
-			
+			'nama'=>'required',
+			'harga'=>'required',
 		];
 	}
 

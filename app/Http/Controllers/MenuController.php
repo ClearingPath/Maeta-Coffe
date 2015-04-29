@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\menu;
 use App\bahanBaku;
+use App\resep;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -38,18 +39,19 @@ class MenuController extends Controller {
 
 	public function add_menu(CreateMenuRequest $request)
 	{
-		// $input = $request->all();
-		// $bahan = bahanBaku::where('nama', '=', )
-		
-		// dimasukinnya per loop kayaknya (?)
+		$menu = new menu;
+		$menu->nama = $request->nama;
+		$menu->harga = $request->harga;
+		$menu->save();
 		$counter = Input::get('count');
-		$nama = Input::get('nama');
-		$harga = Input::get('harga');
-		for($x=0;$x<=$counter;$x++){
-			echo "<label>";
-			$input = Input::get('input'.$x);
-			$field = Input::get('field'.$x);
-			echo "</label><br />";
+		for($x=0;$x<$counter;$x++){
+			$nama = Input::get('input'.$x);
+			$jumlah = Input::get('field'.$x);
+			$bahan = bahanBaku::where('nama','=',$nama)->get()->first();
+			$menu->bahanBaku()->attach($bahan->id);
+			$resep = resep::latest()->first();
+			$resep->jumlah = $jumlah;
+			$resep->save();
 		}
 
 		return view('home');

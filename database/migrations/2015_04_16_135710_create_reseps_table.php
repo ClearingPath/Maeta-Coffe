@@ -17,6 +17,7 @@ class CreateResepsTable extends Migration {
 			$table->increments('id');
 			$table->integer('menu_id')->unsigned();
 			$table->integer('bahan_baku_id')->unsigned();
+			$table->integer('jumlah');
 			$table->timestamps();
 
 			$table->foreign('bahan_baku_id')
