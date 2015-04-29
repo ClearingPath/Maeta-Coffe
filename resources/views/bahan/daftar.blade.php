@@ -10,34 +10,38 @@
 
 	    <div class="panel-body">
 		    <div class="table-responsive">
-		        <table class="table table-bordered table-hover table-striped">
-		            <thead>
-		                <tr>
-		                    <th>Nama</th>
-		                    <th>Jumlah Stok Saat Ini</th>
-		                    <th>Threshold</th>
-		                    <th>Satuan</th>
-		                    <th>Harga Satuan (Rupiah)</th>
-		                    <th>Aksi</th>
-		                </tr>
-		            </thead>
-		            <tbody>
-		        		@foreach ($input as $inputbahan)
+		    	@if ($input != "[]")
+			        <table class="table table-bordered table-hover table-striped">
+			            <thead>
 			                <tr>
-			                    <td>{{ $inputbahan->nama }}</td>
-			                    <td>{{ $inputbahan->jumlah_stok }}</td>
-			                    <td>{{ $inputbahan->threshold }}</td>
-			                    <td>{{ $inputbahan->satuan }}</td>
-			                    <td>{{ $inputbahan->harga_per_satuan }}</td>
-			                    <td>
-			                        <a href="{{ url('bahan/edit/'.$inputbahan->id) }}">Edit</a> |
-			                        <a href="{{ url('bahan/delete/'.$inputbahan->id) }}">Delete</a>
-			                    </td>
-			                    
+			                    <th>Nama</th>
+			                    <th>Jumlah Stok Saat Ini</th>
+			                    <th>Threshold</th>
+			                    <th>Satuan</th>
+			                    <th>Harga Satuan (Rupiah)</th>
+			                    <th>Aksi</th>
 			                </tr>
-		      			@endforeach
-		            </tbody>
-		        </table>
+			            </thead>
+			            <tbody>
+			        		@foreach ($input as $inputbahan)
+				                <tr>
+				                    <td>{{ $inputbahan->nama }}</td>
+				                    <td>{{ $inputbahan->jumlah_stok }}</td>
+				                    <td>{{ $inputbahan->threshold }}</td>
+				                    <td>{{ $inputbahan->satuan }}</td>
+				                    <td>{{ $inputbahan->harga_per_satuan }}</td>
+				                    <td>
+				                        <a href="{{ url('bahan/edit/'.$inputbahan->id) }}">Edit</a> |
+				                        <a href="{{ url('bahan/delete/'.$inputbahan->id) }}">Delete</a>
+				                    </td>
+				                    
+				                </tr>
+			      			@endforeach
+			            </tbody>
+			        </table>
+		        @else
+		        	<h3>Maaf data bahan baku kosong. Silakan isi di menu "Create Bahan".</h3>
+		        @endif
 		    </div>
 		</div>
 
